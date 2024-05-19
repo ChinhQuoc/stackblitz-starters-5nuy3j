@@ -1,21 +1,30 @@
-<!-- 1. String interpo;ation {{ exprestion }}-->
-{{ name }}
-<p>{{ user.name }}</p>
-<p>{{ user.age }}</p>
+<!--
+<app-hello *ngIf="user.age >= 18" [name]="user.name"></app-hello>
+<div *ngIf="user.age < 18">
+  You are to young to see this content
+</div>
+-->
 
 <!--
-  2. Data binding
-  input sẽ đc part thành HTMLInputElement {type: 'text', value: 'haha', atributes: [], ...}
-  chia data binding thành 2 loại
-  + property binding: []=exprestion, những dữ liệu kiểu static (k thay đổi) thì mình nên để type="text"
-    (này cũng là 1 property binding)
-  + atribute binding
+<app-hello *ngIf="user.age >= 18; else under18" [name]="user.name"></app-hello>
+
+<ng-template #under18>
+  <div>
+    You are to young to see this content
+  </div>
+</ng-template>
 -->
-<input [type]="'text'" value="haha"/>
 
-<!--3. event binding-->
-<button type="button" (click)="handler()">Click me</button>
+<ng-template [ngIf]="user.age >= 18" [ngIfElse]="under18">
+  <app-hello [name]="user.name"></app-hello>
+</ng-template>
 
-<!--2 ways bindings-->
-<br><br>
-<input type="text" [(ngModel)]="name"/>
+<ng-template #under18>
+  <div>
+    You are to young to see this content
+  </div>
+</ng-template>
+
+<button (click)="user.age = user.age - 1">-</button>
+Age: {{user.age}}
+<button (click)="user.age = user.age + 1">+</button>

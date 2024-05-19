@@ -6,15 +6,11 @@ import { Component, VERSION } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'angular100';
   name = "Angular " + VERSION.major;
+  show = false;
 
   user = {
-    name: 'Hiep',
-    age: 20
+    name: 'Chau',
+    age: 30
   };
-
-  handler() {
-    console.log('click');
-  }
 }
