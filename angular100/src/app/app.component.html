@@ -1,16 +1,22 @@
-<ul>
-  <li *ngFor="let u of users; index as idx; count as total; first as isFirst; even as isEven; odd as isOdd; last as isLast">
-    <span>{{u.name}} - {{u.id}} - {{u.phone}}</span>
-    <br>
-    <span>ai index {{idx}} out of {{total}}</span>
-    <br>
-    <span *ngIf="isEven">I am even number</span>
-    <br>
-    <span *ngIf="isOdd">I am odd number</span>
-    <br>
-    <span *ngIf="isFirst">I am first</span>
-    <br>
-    <span *ngIf="isLast">I am last</span>
-    <br><br><br>
-  </li>
-</ul>
+<button (click)="isDanger = !isDanger">Toggle Danger</button>
+<button (click)="isWarning = !isWarning">Toggle Warning</button>
+
+<!-- <div class="box" [class.red-boder]="isDanger" [class.yellow-background]="isWarning"></div> -->
+
+<!-- <div class="box" [class]="{ 'red-boder': isDanger, 'yellow-background': isWarning }"></div> -->
+
+<!-- nên dùng [class] thay vì [ngClass] -->
+<div [class]="classes"></div>
+
+<!--
+  [style.class-name] 
+  [style.className]  
+  [style]="object"
+-->
+<!-- <p [style.color]="'red'" [style.backgroundColor]="'yellow'" [style.fontSize.rem]="2">
+  Hello world
+</p> -->
+
+<p [style]="{'color': 'var(--text-color)', 'backgroundColor': 'yellow'}" >
+  Hello world
+</p>
