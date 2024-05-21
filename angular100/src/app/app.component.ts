@@ -6,15 +6,6 @@ import { Component, VERSION } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'angular100';
   name = "Angular " + VERSION.major;
-
-  user = {
-    name: 'Hiep',
-    age: 20
-  };
-
-  handler() {
-    console.log('click');
-  }
+  isCheck = true;
 }
