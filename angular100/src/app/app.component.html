@@ -1,7 +1,23 @@
 <h1>
   Angular sample project for Angular 100 Days of Code
 </h1>
-<input type="text" [(ngModel)]="name">
+<input #nameInput type="text" [(ngModel)]="name">
 <p>Name: {{ name }}</p>
 
-<app-toggle [(checked)]="isCheck"></app-toggle>
+<!-- 
+  #toggleComp: template variable 
+  toggleComp là instance của ToggleComponent
+  khi đặt 1 template variable lên 1 component thì nó là 1 instance của comp đó
+-->
+<!-- <app-toggle #toggleComp [(checked)]="isCheck"></app-toggle> -->
+
+<button #toggleButton>Toggle me</button>
+
+<!-- ViewChildren -->
+<button (click)="showLast = !showLast">Toggle show last</button>
+<app-toggle [(checked)]="isCheck"></app-toggle> 
+<app-toggle [(checked)]="isCheck"></app-toggle> 
+<app-toggle [(checked)]="isCheck"></app-toggle> 
+<ng-container *ngIf="showLast">
+  <app-toggle [(checked)]="isCheck"></app-toggle> 
+</ng-container>
