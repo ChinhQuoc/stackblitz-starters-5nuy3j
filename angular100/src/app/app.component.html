@@ -1,21 +1,22 @@
-<!-- 1. String interpo;ation {{ exprestion }}-->
-{{ name }}
-<p>{{ user.name }}</p>
-<p>{{ user.age }}</p>
+<h1>Angular</h1>
+<div class="card mx-4">
+  <div class="card-header">
+    You have selected <ng-container [ngTemplateOutlet]="counterTmpl"></ng-container>.
+  </div>
+  <div class="card-body">
+    There are <ng-container [ngTemplateOutlet]="counterTmpl"></ng-container> was
+    selected.
+  </div>
+  <div class="card-footer">
+    You have selected
+    <ng-container [ngTemplateOutlet]="counterTmpl"></ng-container>.
+  </div>
+</div>
+<ng-template #counterTmpl>
+  <span class="badge badge-primary">{{ counter }}</span> item(s)
+</ng-template>
 
-<!--
-  2. Data binding
-  input sẽ đc part thành HTMLInputElement {type: 'text', value: 'haha', atributes: [], ...}
-  chia data binding thành 2 loại
-  + property binding: []=exprestion, những dữ liệu kiểu static (k thay đổi) thì mình nên để type="text"
-    (này cũng là 1 property binding)
-  + atribute binding
--->
-<input [type]="'text'" value="haha"/>
-
-<!--3. event binding-->
-<button type="button" (click)="handler()">Click me</button>
-
-<!--2 ways bindings-->
-<br><br>
-<input type="text" [(ngModel)]="name"/>
+<ng-template #linkTemplate let-l>
+  <h3>{{ l }}</h3>
+</ng-template>
+<app-tabs [navs]="navs" [linkTemplate]="linkTemplate"></app-tabs>

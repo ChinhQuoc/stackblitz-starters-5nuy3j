@@ -8,13 +8,6 @@ import { Component, VERSION } from '@angular/core';
 export class AppComponent {
   title = 'angular100';
   name = "Angular " + VERSION.major;
-
-  user = {
-    name: 'Hiep',
-    age: 20
-  };
-
-  handler() {
-    console.log('click');
-  }
+  counter = 1;
+  navs = ['Active', 'Link 1', 'Link 2'];
 }
