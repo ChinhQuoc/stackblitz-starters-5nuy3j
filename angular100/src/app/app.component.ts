@@ -9,12 +9,8 @@ export class AppComponent {
   title = 'angular100';
   name = "Angular " + VERSION.major;
 
-  user = {
-    name: 'Hiep',
-    age: 20
-  };
-
-  handler() {
-    console.log('click');
+  questions = {
+    question1: true,
+    question2: false
   }
 }

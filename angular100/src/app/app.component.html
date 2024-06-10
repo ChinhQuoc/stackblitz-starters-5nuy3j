@@ -1,21 +1,25 @@
-<!-- 1. String interpo;ation {{ exprestion }}-->
-{{ name }}
-<p>{{ user.name }}</p>
-<p>{{ user.age }}</p>
+<h1>
+  Angular sample project for Angular 100 Days of Code
+</h1>
+<h2>
+  Day 13: Content Projection in Angular
+</h2>
 
-<!--
-  2. Data binding
-  input sẽ đc part thành HTMLInputElement {type: 'text', value: 'haha', atributes: [], ...}
-  chia data binding thành 2 loại
-  + property binding: []=exprestion, những dữ liệu kiểu static (k thay đổi) thì mình nên để type="text"
-    (này cũng là 1 property binding)
-  + atribute binding
--->
-<input [type]="'text'" value="haha"/>
+<br>
 
-<!--3. event binding-->
-<button type="button" (click)="handler()">Click me</button>
+<app-toggle [(checked)]="questions.question1">
+  <h3 class="toogle-header">Header 1</h3>
+  <label ngProjectAs="app-label">Question 1</label>
+  <span>Some paragraph</span>
+</app-toggle>
 
-<!--2 ways bindings-->
-<br><br>
-<input type="text" [(ngModel)]="name"/>
+<app-toggle [(checked)]="questions.question2">
+  <h3 class="toogle-header">Header 2</h3>
+  <span>Some paragraph 2</span>
+  <label>Question 2</label>
+</app-toggle>
+
+
+<p>
+  Design by: <a href="https://dribbble.com/shots/4707036-Switcher-XXXVIII" target="_blank">Oleg Frolov</a>
+</p>
