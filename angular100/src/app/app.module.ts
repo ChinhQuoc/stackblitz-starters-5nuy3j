@@ -4,10 +4,14 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TabGroupComponent } from './tab-group.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TabPanelComponent,
+    TabPanelComponent
+
   ],
   imports: [
     BrowserModule,
