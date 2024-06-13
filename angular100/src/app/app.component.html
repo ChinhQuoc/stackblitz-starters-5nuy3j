@@ -1,21 +1,21 @@
-<!-- 1. String interpo;ation {{ exprestion }}-->
-{{ name }}
-<p>{{ user.name }}</p>
-<p>{{ user.age }}</p>
+<ng-template
+  #buttonTmpl
+  let-label="label"
+  let-icon="icon"
+  let-className="classname"
+>
+  <button [class]="['btn', className ? className : '']">
+    <i *ngIf="icon" class="fa {{icon}}"></i>
+    {{ label }}
+  </button>
+</ng-template>
 
-<!--
-  2. Data binding
-  input sẽ đc part thành HTMLInputElement {type: 'text', value: 'haha', atributes: [], ...}
-  chia data binding thành 2 loại
-  + property binding: []=exprestion, những dữ liệu kiểu static (k thay đổi) thì mình nên để type="text"
-    (này cũng là 1 property binding)
-  + atribute binding
--->
-<input [type]="'text'" value="haha"/>
+<ng-contain
+[ngTemplateOutlet]="buttonTmpl"
+[ngTemplateOutletContext]="{label: 'Click here', className: 'btn-primary'}"
+></ng-contain>
 
-<!--3. event binding-->
-<button type="button" (click)="handler()">Click me</button>
-
-<!--2 ways bindings-->
-<br><br>
-<input type="text" [(ngModel)]="name"/>
+<ng-contain
+[ngTemplateOutlet]="buttonTmpl"
+[ngTemplateOutletContext]="{label: 'Delete', className: 'btn-danger', icon: 'fa-remove'}"
+></ng-contain>
